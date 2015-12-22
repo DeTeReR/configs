@@ -1,5 +1,5 @@
 if [ -z "$TMUX" ]; then
-    tmux
+    exec tmux
 fi
 HISTFILE=~/.histfile
 HISTSIZE=10000
