@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=10000
+HISTSIZE=10000
+SAVEHIST=100000
 setopt appendhistory autocd beep extendedglob notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
@@ -12,7 +12,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstal
 
-#ROYDE additions:
 
 autoload -U promptinit
 promptinit
@@ -37,6 +36,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='ls -ltrh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -54,16 +54,7 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 
-export PYTHONPATH=${PYTHONPATH}:~/repos/scrape/scrape/:~/repos/scrape/scrapers/
-export PYTHONPATH=${PYTHONPATH}:~/repos/lib/gambitpy/:~/repos/lib/dumaclient/:~/repos/lib/lineproto/:~/repos/strategies/gambitsolvers/miyagi/
-
-# psql stuff
-export PGAPPNAME="psql daniel@royde-deskt"
-
-
-alias lt='ls -ltrh'
 alias hist='history 1'
-export PATH=${PATH}:~/repos/core/bin
 if [ -z "$TMUX" ]; then
 	tmux
 fi
@@ -74,5 +65,10 @@ fi
 
 bindkey "^[[D" backward-word
 bindkey "^[[C" forward-word
-bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
+
+if [ -f ~/.local_stuff ]; then
+    . ~/.local_stuff
+if
+
+
