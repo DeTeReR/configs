@@ -1,4 +1,6 @@
-# Lines configured by zsh-newuser-install
+if [ -z "$TMUX" ]; then
+    tmux
+fi
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=100000
@@ -12,6 +14,22 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstal
 
+# Added from https://www.codementor.io/linux/tutorial/configure-linux-toolset-zsh-tmux-vim
+ZSH_THEME="3den"
+# want your terminal to support 256 color schemes? I do ...
+export TERM="xterm-256color"
+
+# if you do a 'rm *', Zsh will give you a sanity check!
+setopt RM_STAR_WAIT
+
+# allows you to type Bash style comments on your command line
+# good 'ol Bash
+setopt interactivecomments
+
+# Zsh has a spelling corrector
+setopt CORRECT
+
+###
 
 autoload -U promptinit
 promptinit
@@ -38,6 +56,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lt='ls -ltrh'
 
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -52,12 +74,10 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 export EDITOR=vim
-export VISUAL=vim
+export VISUAL=$EDITOR
+export USE_EDITOR=$EDITOR
 
 alias hist='history 1'
-if [ -z "$TMUX" ]; then
-	tmux
-fi
 
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
@@ -69,6 +89,6 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 if [ -f ~/.local_stuff ]; then
     . ~/.local_stuff
-if
+fi
 
 
