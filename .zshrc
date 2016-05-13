@@ -73,4 +73,5 @@ if [ -f ~/.local_stuff ]; then
     . ~/.local_stuff
 fi
 
+setxkbmap -option caps:escape
 setxkbmap gb
