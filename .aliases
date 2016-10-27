@@ -16,6 +16,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias lt='ls -ltrh'
+alias lt='ls -latrh'
 alias py=python
 alias g=git

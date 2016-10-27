@@ -123,7 +123,7 @@ export PYTHONPATH=${PYTHONPATH}:~/repos/scrape/
 export PGAPPNAME="psql daniel@royde-deskt"
 
 
-alias lt='ls -ltrh'
+alias lt='ls -ltarh'
 
 export PATH=${PATH}:~/repos/core/bin/
 
