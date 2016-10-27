@@ -1,0 +1,58 @@
+[user]
+	name = Daniel Royde
+	email = danielroyde@gambitresearch.com
+[push]
+	default = current
+ 
+# if you want some colour in the output -- you can also set at a finer-grained level
+[color]
+    ui = auto
+ 
+# some useful aliases
+[alias]
+    a = add
+    p = push
+    st = status
+    sb = status -sb
+    cm = commit
+    br = branch
+    co = checkout
+    df = diff
+    cp = cherry-pick
+    fp = format-patch
+    sm = submodule
+    l = "!bash -c \"git log \"$@\" --all --graph --branches --decorate --abbrev-commit --date=short --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(blue)%G?%Creset'\""
+    l1 = log --oneline
+    lo = log --oneline
+    loog = log --pretty=fuller
+    amend = commit --amend
+    branches = branch -a
+    delete-remote-branch = "!bash -c \"[[ $# = 1 ]] && git push origin :$1 || echo Missing argument: remote branch name\""
+    remotes = remote -v
+    rmbranch = !git branch -d $1 && git push origin --delete
+    tags = tag -l
+    praise = blame
+ 
+# uncomment to show one line per commit output in git log by default
+#[format]
+#    pretty = oneline
+ 
+# when there are merge conflicts, show the merge base as well as both sides of the conflict.
+[merge]
+    conflictstyle = diff3
+ 
+# use this to have a local list of always ignored files. You will have to create ~/.gitignore too.
+[core]
+    excludesfile = ~/.gitignore
+ 
+# less crappy fonts in gitk.
+# You may need Tk 8.5: see http://www.myscienceisbetter.info/fix-gitk-ugly-fonts-in-ubuntu.html for example
+[gui]
+    fontui = -family Ubuntu -size 8 -weight normal -slant roman -underline 0 -overstrike 0
+    fontdiff = -family \"Liberation Mono\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
+ 
+[git-up "fetch"]
+    all = true
+ 
+[help]
+    autocorrect = 50 
