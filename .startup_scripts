@@ -1,0 +1,9 @@
+# Set KEYBOARD to UK
+# NOTE setxbkmap must be executed after delay; otherwise Keyboard Layout settings will be lost
+# https://bbs.archlinux.org/viewtopic.php?id=159418
+# http://www.linux.org.ru/forum/general/6603527
+sleep 3 &&  setxkbmap gb
+xset +dpms
+caffeine &
+redshift -l 51.51:-0.12 &
+numlockx on
