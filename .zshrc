@@ -38,9 +38,6 @@ prompt adam1
 
 bindkey '^H' backward-kill-word
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -48,11 +45,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 export EDITOR=vim
@@ -60,10 +55,6 @@ export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
 
 alias hist='history 1'
-
-[[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
-[[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
-
 
 bindkey "^[[D" backward-word
 bindkey "^[[C" forward-word
