@@ -21,7 +21,8 @@
     cp = cherry-pick
     fp = format-patch
     sm = submodule
-    l = "!bash -c \"git log \"$@\" --all --graph --branches --decorate --abbrev-commit --date=short --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(blue)%G?%Creset'\""
+		b = branch
+		l = "!bash -c \"git log \"$@\" --all --graph --branches --decorate --abbrev-commit --date=short --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(blue)%G?%Creset'\""
     l1 = log --oneline
     lo = log --oneline
     loog = log --pretty=fuller

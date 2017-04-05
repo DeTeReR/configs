@@ -11,7 +11,7 @@ bindkey -v
 zstyle :compinstall filename '/home/daniel/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit 
 # End of lines added by compinstal
 
 # Added from https://www.codementor.io/linux/tutorial/configure-linux-toolset-zsh-tmux-vim
@@ -66,3 +66,6 @@ fi
 
 setxkbmap -option caps:escape
 setxkbmap gb
+
+fpath=(~/.zsh/completion $fpath)
+
