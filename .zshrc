@@ -1,6 +1,3 @@
-if [ -z "$TMUX" ]; then
-    exec tmux
-fi
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=100000
