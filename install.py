@@ -29,22 +29,23 @@ if not i3_config_updated:
 		i3_config.write('\n# Added by configs/install.py\nexec --no-startup-id bash %s\n' % startup_scripts_filename)
 
 
-for line in open('.startup_scripts'):
-	if line.startswith('#'):
-		continue
-	line = line.strip()
-	line = line.replace('&', '')
-	line = line.split(' ')
-	process = None
-	try:
-		process = subprocess.Popen(line)
+with open('.startup_scripts') as startup_scripts:
+	for line in startup_scripts:
+		if line.startswith('#'):
+			continue
+		line = line.strip()
+		line = line.replace('&', '')
+		line = line.split(' ')
+		process = None
+		try:
+			process = subprocess.Popen(line)
 
-		sleep(0.001)
-		return_code = process.poll()
-		if return_code < 0 and return_code is not None:
-			logging.error('Is something wrong with "%s"? Return code: %s', line, return_code)
-	except OSError:
-		logging.exception('%s in startup_scripts didn\'t run, it it installed?', line)
-	finally:
-		if process is not None:
-			process.terminate()
+			sleep(0.001)
+			return_code = process.poll()
+			if return_code < 0 and return_code is not None:
+				logging.error('Is something wrong with "%s"? Return code: %s', line, return_code)
+		except OSError:
+			logging.exception('%s in startup_scripts didn\'t run, it it installed?', line)
+		finally:
+			if process is not None:
+				process.terminate()
