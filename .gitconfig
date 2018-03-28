@@ -33,6 +33,7 @@
     rmbranch = !git branch -d $1 && git push origin --delete
     tags = tag -l
     praise = blame
+    ll = "!bash -c \"git log --oneline --graph | head \""
  
 # uncomment to show one line per commit output in git log by default
 #[format]
