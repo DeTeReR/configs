@@ -34,6 +34,7 @@
     tags = tag -l
     praise = blame
     ll = "!bash -c \"git log --oneline --graph | head \""
+    fix = "!bash -c \"git co master && git pull && git co - && git rebase master \""
  
 # uncomment to show one line per commit output in git log by default
 #[format]
